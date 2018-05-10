@@ -21,15 +21,15 @@ else:
 
 parse = argparse.ArgumentParser(description='command line interface for mmd net')
 parse.add_argument(
-    '--source_dir',
+    '--source_path',
     type=str,
     default=os.path.join(io.DeepLearningRoot(),'Data/Person1Day1_3month.csv'),
-    help='Directory of the source dataset')
+    help='Path to the source dataset')
 parse.add_argument(
-    '--target_dir',
+    '--target_path',
     type=str,
     default=os.path.join(io.DeepLearningRoot(),'Data/Person1Day2_3month.csv'),
-    help='Directory of the source dataset')
+    help='Path to the source dataset')
 parse.add_argument(
     '--epochs',
     type=int,
@@ -68,8 +68,8 @@ parse.add_argument(
 
 FLAGS = parse.parse_args()
 
-source = np.genfromtxt(FLAGS.source_dir, delimiter=',', skip_header=0)
-target = np.genfromtxt(FLAGS.target_dir, delimiter=',', skip_header=0)
+source = np.genfromtxt(FLAGS.source_path, delimiter=',', skip_header=0)
+target = np.genfromtxt(FLAGS.target_path, delimiter=',', skip_header=0)
 
 # pre-process data: log transformation, a standard practice with CyTOF data
 target = dh.preProcessCytofData(target)
