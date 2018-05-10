@@ -13,3 +13,15 @@ All the models used to produce the results in the manuscript are saved in savedM
 
 
 Any questions should be referred to Uri Shaham, uri.shaham@yale.edu.
+
+# Usage
+To use the command line interface version of our model, please run:
+```
+cd path_to_BatchEffectRemoval/src; python cmdline_MMD_ResNet.py --source_path=[SOURCE_PATH] --target_path=[TARGET_PATH]
+```
+where [SOURCE_PATH] and [TARGET_PATH] are the paths to the source dataset and target dataset respectively. The model will then calibrate the source dataset to match the target dataset. Alternatively, running the file without any arguments will load and demo the model on a default dataset.
+
+cmdline_MMD_ResNet has many more arguments. These include the number of epochs to train, the width and depth of the ResNet architecture, and the learning rate schedule. To get a brief overview of each hyperparameter, please run with the '-h' flag:
+```
+python cmdline_MMD_ResNet.py -h
+```
